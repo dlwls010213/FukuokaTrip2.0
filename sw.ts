@@ -1,16 +1,7 @@
+/// <reference types="vite/client" />
+
 // This code checks if the service worker can be registered.
 // Adapted for Vite from CRA's serviceWorkerRegistration.ts
-
-// Manually define ImportMeta to fix "Property 'env' does not exist on type 'ImportMeta'"
-declare global {
-  interface ImportMeta {
-    env: {
-      PROD: boolean;
-      BASE_URL: string;
-      [key: string]: any;
-    };
-  }
-}
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
