@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cloud, Sun, CloudRain, Snowflake, Clock } from 'lucide-react';
+import { Cloud, Sun, CloudRain, Snowflake } from 'lucide-react';
 
 const WeatherWidget: React.FC = () => {
   const [time, setTime] = useState<string>('');

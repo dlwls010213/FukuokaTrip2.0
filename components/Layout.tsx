@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Calendar, Briefcase, DollarSign } from 'lucide-react';
 import SnowEffect from './SnowEffect';
 
@@ -8,8 +8,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { pathname } = useLocation();
-
   const navItems = [
     { path: '/', label: '行程', icon: <Calendar size={20} /> },
     { path: '/packing', label: '清單', icon: <Briefcase size={20} /> },
