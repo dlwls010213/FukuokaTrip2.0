@@ -1,5 +1,3 @@
-/// <reference types="vite/client" />
-
 // This code checks if the service worker can be registered.
 // Adapted for Vite from CRA's serviceWorkerRegistration.ts
 
@@ -18,10 +16,12 @@ type Config = {
 
 export function register(config?: Config) {
   // Use defensive coding to prevent crashes if import.meta.env is undefined
-  const isProd = import.meta.env && import.meta.env.PROD;
+  // Cast import.meta to any to avoid TypeScript errors when types are missing
+  const env = (import.meta as any).env;
+  const isProd = env && env.PROD;
 
   if (isProd && 'serviceWorker' in navigator) {
-    const baseUrl = (import.meta.env && import.meta.env.BASE_URL) || '';
+    const baseUrl = (env && env.BASE_URL) || '';
 
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(baseUrl, window.location.href);
