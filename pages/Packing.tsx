@@ -47,7 +47,7 @@ const Packing: React.FC = () => {
   // Extract unique categories
   const categories = Array.from(new Set(items.map(i => i.category))).sort();
   // Default categories for the dropdown
-  const defaultCategories = ['證件', '錢包', '電子', '衣物', '演唱會', '雜物'];
+  const defaultCategories = ['證件', '錢包', '電子', '衣物', '演唱會', '常備用品'];
   const allCategories = Array.from(new Set([...defaultCategories, ...categories]));
 
   const progress = items.length > 0 ? Math.round((items.filter(i => i.checked).length / items.length) * 100) : 0;

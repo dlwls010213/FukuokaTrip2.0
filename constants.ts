@@ -7,9 +7,15 @@ export const ITINERARY_DATA: DaySchedule[] = [
     weekday: '週三',
     items: [
       {
-        time: '全天',
-        activity: '飛行與轉機',
+        time: '17:40(GMT +8)',
+        activity: '飛機起飛',
         locationCN: '臺中 → 仁川',
+        locationJP: 'Taichung → Incheon',
+      },
+      {
+        time: '21:10(GMT +9)',
+        activity: '抵達與轉機',
+        locationCN: '仁川',
         locationJP: 'Incheon',
         note: '仁川過夜停留。'
       }
@@ -71,7 +77,7 @@ export const ITINERARY_DATA: DaySchedule[] = [
       },
       {
         time: '15:00',
-        activity: '與友人會合：聖誕市集',
+        activity: '聖誕市集 Feat. 社群克拉',
         locationCN: 'JR博多站廣場',
         locationJP: 'JR博多駅前広場',
         note: '會合點'
@@ -85,7 +91,7 @@ export const ITINERARY_DATA: DaySchedule[] = [
       },
       {
         time: '19:00',
-        activity: '燒肉晚餐預訂',
+        activity: '燒肉晚餐 Feat.社群克拉',
         locationCN: '藥院燒肉',
         locationJP: '薬院焼肉'
       },
@@ -187,11 +193,24 @@ export const ITINERARY_DATA: DaySchedule[] = [
         note: '預留安檢緩衝時間'
       },
       {
-        time: '10:25',
+        time: '10:25(GMT +9)',
         activity: '飛機起飛',
-        locationCN: '',
-        locationJP: ''
-      }
+        locationCN: '熊本 → 仁川',
+        locationJP: 'Kumamoto → Incheon'
+      },
+      {
+        time: '12:25(GMT +9)',
+        activity: '抵達與轉機',
+        locationCN: '仁川',
+        locationJP: 'Incheon',
+        note: '可以去找OliveYoung或CU逛逛。'
+      },
+      {
+        time: '14:25(GMT +9)',
+        activity: '飛機起飛',
+        locationCN: '仁川 → 臺中',
+        locationJP: 'Incheon → Taichung'
+      },
     ]
   }
 ];
