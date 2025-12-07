@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Calendar, Briefcase, DollarSign } from 'lucide-react';
 import SnowEffect from './SnowEffect';
+import InstallPWA from './InstallPWA';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="fixed inset-0 bg-gradient-to-b from-[#234787] to-[#162d55] text-slate-800 overflow-hidden">
       <SnowEffect />
+      <InstallPWA />
       
       {/* Scrollable Main Content */}
       <main className="h-full w-full overflow-y-auto overscroll-contain">
