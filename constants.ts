@@ -228,6 +228,6 @@ export const DEFAULT_PACKING_LIST: PackingItem[] = [
   { id: '10', name: '望遠鏡', category: '演唱會', checked: false },
   { id: '11', name: '保暖大衣', category: '衣物', checked: false },
   { id: '12', name: '圍巾/手套', category: '衣物', checked: false },
-  { id: '13', name: '暖暖包', category: '雜物', checked: false },
-  { id: '14', name: '常備藥品', category: '雜物', checked: false },
+  { id: '13', name: '暖暖包', category: '常備用品', checked: false },
+  { id: '14', name: '常備藥品', category: '常備用品', checked: false },
 ];
