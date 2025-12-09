@@ -221,7 +221,7 @@ export const DEFAULT_PACKING_LIST: PackingItem[] = [
   { id: '3', name: '日幣現金', category: '錢包', checked: false },
   { id: '4', name: '信用卡 (海外回饋)', category: '錢包', checked: false },
   { id: '5', name: '行動電源', category: '電子', checked: false },
-  { id: '6', name: '轉接頭/充電器', category: '電子', checked: false },
+  { id: '6', name: '充電器', category: '電子', checked: false },
   { id: '7', name: 'SIM卡/漫遊', category: '電子', checked: false },
   { id: '8', name: 'SEVENTEEN 應援棒', category: '演唱會', checked: false },
   { id: '9', name: '應援毛巾/扇子', category: '演唱會', checked: false },
