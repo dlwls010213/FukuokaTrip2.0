@@ -65,22 +65,39 @@ const InstallPWA: React.FC = () => {
         
         {/* Snowflake Icon */}
         <div className="relative bg-white/10 backdrop-blur-md border border-white/40 p-3 rounded-full shadow-lg active:scale-95 transition-transform duration-200">
+            {/* Optimized Snowflake SVG */}
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
-                strokeWidth="2" 
+                strokeWidth="1.5" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
                 className="w-8 h-8 text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]"
             >
-                <path d="M2 12h20" />
-                <path d="M12 2v20" />
-                <path d="m20 2-6 6" />
-                <path d="m4 22 6-6" />
-                <path d="m20 22-6-6" />
-                <path d="m4 2 6 6" />
+                {/* Main vertical and horizontal */}
+                <line x1="12" y1="2" x2="12" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                {/* Diagonals */}
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line>
+                
+                {/* Branch Tips Details */}
+                <path d="M12 6l-2-2"></path>
+                <path d="M12 6l2-2"></path>
+                
+                <path d="M12 18l-2 2"></path>
+                <path d="M12 18l2 2"></path>
+                
+                <path d="M6 12l-2-2"></path>
+                <path d="M6 12l-2 2"></path>
+                
+                <path d="M18 12l2-2"></path>
+                <path d="M18 12l2 2"></path>
+                
+                {/* Center Detail */}
+                <circle cx="12" cy="12" r="1.5" fill="currentColor" fillOpacity="0.8"></circle>
             </svg>
         </div>
       </div>
