@@ -14,7 +14,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'icon.svg'],
       manifest: {
         name: '2025福岡之旅_',
-        short_name: '福岡2025',
+        short_name: '2025福岡之旅',
         description: '2025 Winter Trip to Fukuoka Itinerary',
         theme_color: '#234787',
         background_color: '#234787',

@@ -219,10 +219,10 @@ export const DEFAULT_PACKING_LIST: PackingItem[] = [
   { id: '1', name: '護照', category: '證件', checked: false },
   { id: '2', name: '機票/住宿憑證 (電子)', category: '證件', checked: false },
   { id: '3', name: '日幣現金', category: '錢包', checked: false },
-  { id: '4', name: '信用卡 (海外回饋)', category: '錢包', checked: false },
+  { id: '4', name: '信用卡', category: '錢包', checked: false },
   { id: '5', name: '行動電源', category: '電子', checked: false },
   { id: '6', name: '充電器', category: '電子', checked: false },
-  { id: '7', name: 'SIM卡/漫遊', category: '電子', checked: false },
+  { id: '7', name: 'SIM卡/eSIM', category: '電子', checked: false },
   { id: '8', name: 'SEVENTEEN 應援棒', category: '演唱會', checked: false },
   { id: '9', name: '應援毛巾/扇子', category: '演唱會', checked: false },
   { id: '10', name: '望遠鏡', category: '演唱會', checked: false },
@@ -230,4 +230,5 @@ export const DEFAULT_PACKING_LIST: PackingItem[] = [
   { id: '12', name: '圍巾/手套', category: '衣物', checked: false },
   { id: '13', name: '暖暖包', category: '常備用品', checked: false },
   { id: '14', name: '常備藥品', category: '常備用品', checked: false },
+  { id: '15', name: '酒精/酒精濕紙巾', category: '常備用品', checked: false },
 ];

@@ -1,27 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUpDown } from 'lucide-react';
+
+import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowUpDown, RefreshCw } from 'lucide-react';
 
 const Currency: React.FC = () => {
   const [jpy, setJpy] = useState<string>('');
   const [twd, setTwd] = useState<string>('');
   const [rate, setRate] = useState<number>(0.215); // Default fallback
   const [loading, setLoading] = useState<boolean>(true);
+  const [lastUpdated, setLastUpdated] = useState<string>('');
 
-  // Fetch real-time exchange rate
-  useEffect(() => {
-    fetch('https://api.frankfurter.app/latest?amount=1&from=JPY&to=TWD')
+  const fetchRate = useCallback(() => {
+    setLoading(true);
+    // 使用 ExchangeRate-API (Open Access) 取代 Frankfurter
+    // 這個 API 支援 TWD 且不需要 API Key
+    fetch(`https://open.er-api.com/v6/latest/JPY`)
       .then(res => res.json())
       .then(data => {
         if (data?.rates?.TWD) {
-          setRate(data.rates.TWD);
+          const newRate = data.rates.TWD;
+          setRate(newRate);
+          
+          // 格式化更新時間
+          const dateStr = data.time_last_update_utc 
+            ? new Date(data.time_last_update_utc).toLocaleDateString() 
+            : new Date().toLocaleDateString();
+          setLastUpdated(dateStr);
+          
+          // 如果原本有輸入數值，重新計算
+          if (jpy) {
+             const num = parseFloat(jpy);
+             if (!isNaN(num)) setTwd((num * newRate).toFixed(1));
+          }
         }
         setLoading(false);
       })
       .catch(err => {
         console.error('Failed to fetch rate:', err);
         setLoading(false);
+        // Fallback to manual date if API fails but we have a default rate
+        if (!lastUpdated) setLastUpdated(new Date().toLocaleDateString());
       });
-  }, []);
+  }, [jpy, lastUpdated]); // jpy is in dependency to allow recalculation if needed, though mostly handled by inputs
+
+  // Fetch on mount
+  useEffect(() => {
+    fetchRate();
+  }, []); // Remove fetchRate from dependency to avoid infinite loops if logic changes, just run once on mount
 
   const handleJpyChange = (val: string) => {
     setJpy(val);
@@ -55,7 +79,21 @@ const Currency: React.FC = () => {
     <div className="flex flex-col justify-center min-h-[70vh] relative z-10">
       <div className="text-center mb-6">
         <h2 className="text-3xl font-bold text-white drop-shadow-md">匯率換算</h2>
-        {loading && <p className="text-blue-200 text-xs mt-2 animate-pulse">更新匯率中...</p>}
+        <div className="flex items-center justify-center gap-2 mt-2">
+            {lastUpdated && !loading && (
+                <span className="text-blue-200 text-xs bg-white/10 px-2 py-1 rounded-full border border-white/10">
+                    數據日期: {lastUpdated}
+                </span>
+            )}
+            <button 
+                onClick={fetchRate} 
+                disabled={loading}
+                className="text-white/80 hover:text-white transition-colors p-1"
+                aria-label="Refresh Rate"
+            >
+                <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
+            </button>
+        </div>
       </div>
       
       {/* Glass Container - Transparent Background */}
@@ -104,7 +142,7 @@ const Currency: React.FC = () => {
         </div>
         
         <p className="text-xs text-center text-blue-200 mt-6 opacity-70">
-          *即時匯率: 1 JPY ≈ {rate} TWD
+          *即時匯率: 1 JPY ≈ {rate.toFixed(4)} TWD
         </p>
       </div>
     </div>
